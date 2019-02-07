@@ -5,6 +5,7 @@ pipeline {
     stage('dependencies') {
       steps {
         sh 'npm install'
+        sh 'npm install -g cordova'
       }
     }
     stage('prepare') {
