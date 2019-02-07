@@ -14,7 +14,7 @@ pipeline {
     }
     stage('build') {
       steps {
-        sh 'docker build -t software-dev .'
+        sh 'echo a | sudo -S docker build -t software-dev .'
       }
     }
   }
