@@ -1,9 +1,10 @@
-FROM beevelop/android-nodejs
+FROM beevelop/cordova:latest
 
 MAINTAINER Jason Long
 
-ENV CORDOVA_VERSION 8.1.1
+ADD . /software
 
-WORKDIR "/tmp"
+WORKDIR /software
 
-RUN npm i -g --unsafe-perm cordova@${CORDOVA_VERSION}
+RUN yes | $ANDROID_HOME/tools/bin/sdkmanager "build-tools;25.0.2"
+RUN cordova prepare && cordova build android
