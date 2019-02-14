@@ -18,4 +18,15 @@ pipeline {
       }
     }
   }
+  post { 
+    success { 
+       telegramSend 'The Latest Build of SoftwareDev-2019 succeeded http://jasonlong24.crabdance.com:8080/job/SoftwareDev-2019/' 
+    } 
+    failure { 
+       telegramSend 'The Latest Build of SoftwareDev-2019 failed http://jasonlong24.crabdance.com:8080/job/SoftwareDev-2019/' 
+    } 
+    aborted { 
+       telegramSend 'Someone aborted the recent SoftwareDev-2019 build http://jasonlong24.crabdance.com:8080/job/SoftwareDev-2019/' 
+    } 
+  }
 }
